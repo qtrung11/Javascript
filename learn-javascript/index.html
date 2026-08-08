@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Javascript</title>
+
+<link rel="stylesheet" type="text/css" href="./assets/css/index.css">
+</head>
+<body>
+
+<h1>Javascript</h1>
+
+<button type="button" id="btnAddTodo">Add Todo</button>
+
+<div id="todos">
+</div>
+
+<script type="text/javascript">
+  const initialData = [
+    {
+      id: 1,
+      title: 'trung',
+      status: 'new',
+      description: 'trung test',
+      severity: 'low'
+    },
+     {
+      id: 2,
+      title: 'tony',
+      status: 'new',
+      description: 'tony test',
+      severity: 'low'
+    }
+  ];
+  const tempTodos = [];
+  tempTodos.push(...initialData);
+
+  const btnAddTodo = document.getElementById('btnAddTodo');
+  const todos = document.getElementById('todos');
+
+  btnAddTodo.addEventListener('click', () => {
+    const newTodo = {
+      id: Date.now(),
+      title: 'react' + Date.now(),
+      status: 'new',
+      description: 'react test' + Date.now(),
+      severity: 'low'
+    }
+    tempTodos.push(newTodo);
+    renderHtmlTodo(tempTodos);
+  })
+
+  function renderItem(item) {
+    const itemElement = document.createElement('div');
+    itemElement.setAttribute('class', 'issue-list-item');
+    itemElement.setAttribute('id', `issue-list-item--${item.id}`);
+
+    const headerElement = document.createElement('div');
+    headerElement.setAttribute('class', 'list-item-header');
+
+    const titleElement = document.createElement('div');
+    titleElement.setAttribute('class', 'list-item-title');
+    titleElement.innerHTML = item.title;
+
+    const statusElement = document.createElement('div');
+    statusElement.setAttribute('id', 'issueStatus');
+    statusElement.setAttribute('class', 'list-item-status');
+    statusElement.innerHTML = item.status;
+
+    const contentElement = document.createElement('div');
+    contentElement.setAttribute('class', 'list-item-content');
+
+    const issueNameElement = document.createElement('h3');
+    issueNameElement.setAttribute('class', 'issue-name');
+    issueNameElement.innerHTML = item.description;
+
+    const severityElement = document.createElement('h3');
+    severityElement.setAttribute('class', 'list-item-severity');
+    severityElement.innerHTML = item.severity;
+
+    const buttonGroupElement = document.createElement('div');
+    buttonGroupElement.setAttribute('class', 'list-item-group-btn');
+
+    const buttonDeleteElement = document.createElement('button');
+    buttonDeleteElement.setAttribute('class', 'btn btn--delete');
+    buttonDeleteElement.innerHTML = 'Delete';
+
+    headerElement.appendChild(titleElement);
+    headerElement.appendChild(statusElement);
+
+    buttonGroupElement.appendChild(buttonDeleteElement)
+
+    contentElement.appendChild(issueNameElement);
+    contentElement.appendChild(severityElement);
+    contentElement.appendChild(buttonGroupElement);
+
+    itemElement.appendChild(headerElement);
+    itemElement.appendChild(contentElement)
+
+    return itemElement;
+  }
+
+  function renderHtmlTodo(data) {
+    todos.innerHTML = '';
+    data.forEach(item => {
+      const todo = renderItem(item);
+      todos.appendChild(todo)
+    })
+  }
+  renderHtmlTodo(tempTodos);
+
+  /* Data types javascript
+    const a = {}; // memory A
+    const b = {}; // memory B
+    - primitive (nguyên thủy): boolean, string, number, null, undefiend - so sánh tham trị (so sánh giá trị)
+    - non-primitive: array, function, object - so sánh tham chiếu (so sánh vùng nhớ)
+  */
+  const userA = {
+    firstName: 'tony',
+    lastName: 'nguyen',
+    country: {
+      name: 'hcm'
+    }
+  }
+
+  // shadow/deep clone/copy
+  // const userB = {...userA}; // shadow clone -  copy of an object is a copy whose properties share the same references
+  const userB = JSON.parse(JSON.stringify(userA)); // deep clone - A deep copy of an object is a copy whose properties do not share the same references 
+
+  userB.country.ward = 14;
+
+  console.log('object: ', {
+    userA,
+    userB
+  })
+
+ 
+ 
+</script>
+
+
+
+</body>
+</html>
