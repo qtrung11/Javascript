@@ -14,6 +14,9 @@
 <div id="todos">
 </div>
 
+<button type="button" id="btnSaveStorage">Save Storage</button>
+<button type="button" id="btnGetStorage">Get Storage</button>
+
 <script type="text/javascript">
   const initialData = [
     {
@@ -132,6 +135,20 @@
     userA,
     userB
   })
+
+  /* webstorage */
+  const btnSaveStorage = document.getElementById('btnSaveStorage');
+  btnSaveStorage.addEventListener('click', () => {
+    const user = 1;
+    window.sessionStorage.setItem('user', user)
+  })
+
+  const btnGetStorage = document.getElementById('btnGetStorage');
+  btnGetStorage.addEventListener('click', () => {
+    const user = JSON.parse(window.sessionStorage.getItem('user'));
+    console.log('get storage: ', typeof user)
+  })
+  
 
  
  
