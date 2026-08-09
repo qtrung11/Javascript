@@ -148,6 +148,31 @@
     const user = JSON.parse(window.sessionStorage.getItem('user'));
     console.log('get storage: ', typeof user)
   })
+
+  /* destructuring js: object && array */
+  const person = {
+    firstName: 'tony',
+    lastName: 'nguyen',
+    age: 20
+  }
+  const { firstName: _firstName, lastName } = person;
+
+  console.log('destructuring: ', {
+    _firstName,
+    lastName
+  })
+
+  // default values
+  function getProduct({ firstName, lastName = 'Default Last Name' } = {}) {
+    console.log('get data: ', {
+      firstName,
+      lastName
+    })
+  }
+  getProduct({
+    firstName: 'tony',
+    lastName: 'minh'
+  })
   
 
  
