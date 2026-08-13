@@ -1,23 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<title>Issue Tracker</title>
+  <head>
+    <title>Issue Tracker</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="px-4">
+    <header>
+      <section class="h-20 p-8">
+        <h6 class="text-3xl font-bold text-center">ISSUE TRACKER</h6>
+      </section>
+    </header>
+    <main>
+      <div>
+        <form action="/action_page.php">
+          <label for="Title">Title</label><br />
+          <input
+            type="text"
+            id="Title"
+            name="title"
+            value="Title ..."
+            class="border border-gray-400 rounded px-3 py-2 w-full"
+          /><br />
+          <label for="Author">Author</label><br />
+          <select
+            name="Author"
+            id="author"
+            class="border border-gray-400 rounded px-3 py-2 w-full"
+          >
+            <option value="Thomas">Thomas</option>
+            <option value="Tony">Tony</option></select
+          ><br />
+          <label for="Severity">Severity</label><br />
+          <select
+            name="Severity"
+            id="severity"
+            class="border border-gray-400 rounded px-3 py-2 w-full"
+          >
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option></select
+          ><br />
 
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-<body>
-
-<h1 class="text-3xl font-bold underline">
-  Hello world!
-</h1>
-
-<script type="text/javascript">
- 
- 
-</script>
-
-
-
-</body>
+          <input
+            type="submit"
+            value="Submit"
+            class="relative right-0 bottom-0 size-16"
+          />
+        </form>
+      </div>
+    </main>
+  </body>
 </html>
