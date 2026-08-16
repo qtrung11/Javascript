@@ -17,167 +17,302 @@
 <button type="button" id="btnSaveStorage">Save Storage</button>
 <button type="button" id="btnGetStorage">Get Storage</button>
 
-<script type="text/javascript">
-  const initialData = [
-    {
-      id: 1,
-      title: 'trung',
-      status: 'new',
-      description: 'trung test',
-      severity: 'low'
-    },
-     {
-      id: 2,
-      title: 'tony',
-      status: 'new',
-      description: 'tony test',
-      severity: 'low'
-    }
-  ];
-  const tempTodos = [];
-  tempTodos.push(...initialData);
+  <script type="module">
+    const initialData = [
+      {
+        id: 1,
+        title: 'trung',
+        status: 'new',
+        description: 'trung test',
+        severity: 'low'
+      },
+      {
+        id: 2,
+        title: 'tony',
+        status: 'new',
+        description: 'tony test',
+        severity: 'low'
+      }
+    ];
+    const tempTodos = [];
+    tempTodos.push(...initialData);
 
-  const btnAddTodo = document.getElementById('btnAddTodo');
-  const todos = document.getElementById('todos');
+    const btnAddTodo = document.getElementById('btnAddTodo');
+    const todos = document.getElementById('todos');
 
-  btnAddTodo.addEventListener('click', () => {
-    const newTodo = {
-      id: Date.now(),
-      title: 'react' + Date.now(),
-      status: 'new',
-      description: 'react test' + Date.now(),
-      severity: 'low'
+    btnAddTodo.addEventListener('click', () => {
+      const newTodo = {
+        id: Date.now(),
+        title: 'react' + Date.now(),
+        status: 'new',
+        description: 'react test' + Date.now(),
+        severity: 'low'
+      }
+      tempTodos.push(newTodo);
+      renderHtmlTodo(tempTodos);
+    })
+
+    function renderItem(item) {
+      const itemElement = document.createElement('div');
+      itemElement.setAttribute('class', 'issue-list-item');
+      itemElement.setAttribute('id', `issue-list-item--${item.id}`);
+
+      const headerElement = document.createElement('div');
+      headerElement.setAttribute('class', 'list-item-header');
+
+      const titleElement = document.createElement('div');
+      titleElement.setAttribute('class', 'list-item-title');
+      titleElement.innerHTML = item.title;
+
+      const statusElement = document.createElement('div');
+      statusElement.setAttribute('id', 'issueStatus');
+      statusElement.setAttribute('class', 'list-item-status');
+      statusElement.innerHTML = item.status;
+
+      const contentElement = document.createElement('div');
+      contentElement.setAttribute('class', 'list-item-content');
+
+      const issueNameElement = document.createElement('h3');
+      issueNameElement.setAttribute('class', 'issue-name');
+      issueNameElement.innerHTML = item.description;
+
+      const severityElement = document.createElement('h3');
+      severityElement.setAttribute('class', 'list-item-severity');
+      severityElement.innerHTML = item.severity;
+
+      const buttonGroupElement = document.createElement('div');
+      buttonGroupElement.setAttribute('class', 'list-item-group-btn');
+
+      const buttonDeleteElement = document.createElement('button');
+      buttonDeleteElement.setAttribute('class', 'btn btn--delete');
+      buttonDeleteElement.innerHTML = 'Delete';
+
+      headerElement.appendChild(titleElement);
+      headerElement.appendChild(statusElement);
+
+      buttonGroupElement.appendChild(buttonDeleteElement)
+
+      contentElement.appendChild(issueNameElement);
+      contentElement.appendChild(severityElement);
+      contentElement.appendChild(buttonGroupElement);
+
+      itemElement.appendChild(headerElement);
+      itemElement.appendChild(contentElement)
+
+      return itemElement;
     }
-    tempTodos.push(newTodo);
+
+    function renderHtmlTodo(data) {
+      todos.innerHTML = '';
+      data.forEach(item => {
+        const todo = renderItem(item);
+        todos.appendChild(todo)
+      })
+    }
     renderHtmlTodo(tempTodos);
-  })
 
-  function renderItem(item) {
-    const itemElement = document.createElement('div');
-    itemElement.setAttribute('class', 'issue-list-item');
-    itemElement.setAttribute('id', `issue-list-item--${item.id}`);
-
-    const headerElement = document.createElement('div');
-    headerElement.setAttribute('class', 'list-item-header');
-
-    const titleElement = document.createElement('div');
-    titleElement.setAttribute('class', 'list-item-title');
-    titleElement.innerHTML = item.title;
-
-    const statusElement = document.createElement('div');
-    statusElement.setAttribute('id', 'issueStatus');
-    statusElement.setAttribute('class', 'list-item-status');
-    statusElement.innerHTML = item.status;
-
-    const contentElement = document.createElement('div');
-    contentElement.setAttribute('class', 'list-item-content');
-
-    const issueNameElement = document.createElement('h3');
-    issueNameElement.setAttribute('class', 'issue-name');
-    issueNameElement.innerHTML = item.description;
-
-    const severityElement = document.createElement('h3');
-    severityElement.setAttribute('class', 'list-item-severity');
-    severityElement.innerHTML = item.severity;
-
-    const buttonGroupElement = document.createElement('div');
-    buttonGroupElement.setAttribute('class', 'list-item-group-btn');
-
-    const buttonDeleteElement = document.createElement('button');
-    buttonDeleteElement.setAttribute('class', 'btn btn--delete');
-    buttonDeleteElement.innerHTML = 'Delete';
-
-    headerElement.appendChild(titleElement);
-    headerElement.appendChild(statusElement);
-
-    buttonGroupElement.appendChild(buttonDeleteElement)
-
-    contentElement.appendChild(issueNameElement);
-    contentElement.appendChild(severityElement);
-    contentElement.appendChild(buttonGroupElement);
-
-    itemElement.appendChild(headerElement);
-    itemElement.appendChild(contentElement)
-
-    return itemElement;
-  }
-
-  function renderHtmlTodo(data) {
-    todos.innerHTML = '';
-    data.forEach(item => {
-      const todo = renderItem(item);
-      todos.appendChild(todo)
-    })
-  }
-  renderHtmlTodo(tempTodos);
-
-  /* Data types javascript
-    const a = {}; // memory A
-    const b = {}; // memory B
-    - primitive (nguyên thủy): boolean, string, number, null, undefiend - so sánh tham trị (so sánh giá trị)
-    - non-primitive: array, function, object - so sánh tham chiếu (so sánh vùng nhớ)
-  */
-  const userA = {
-    firstName: 'tony',
-    lastName: 'nguyen',
-    country: {
-      name: 'hcm'
+    /* Data types javascript
+      const a = {}; // memory A
+      const b = {}; // memory B
+      - primitive (nguyên thủy): boolean, string, number, null, undefiend - so sánh tham trị (so sánh giá trị)
+      - non-primitive: array, function, object - so sánh tham chiếu (so sánh vùng nhớ)
+    */
+    const userA = {
+      firstName: 'tony',
+      lastName: 'nguyen',
+      country: {
+        name: 'hcm'
+      }
     }
-  }
 
-  // shadow/deep clone/copy
-  // const userB = {...userA}; // shadow clone -  copy of an object is a copy whose properties share the same references
-  const userB = JSON.parse(JSON.stringify(userA)); // deep clone - A deep copy of an object is a copy whose properties do not share the same references 
+    // shadow/deep clone/copy
+    // const userB = {...userA}; // shadow clone -  copy of an object is a copy whose properties share the same references
+    const userB = JSON.parse(JSON.stringify(userA)); // deep clone - A deep copy of an object is a copy whose properties do not share the same references 
 
-  userB.country.ward = 14;
+    userB.country.ward = 14;
 
-  console.log('object: ', {
-    userA,
-    userB
-  })
-
-  /* webstorage */
-  const btnSaveStorage = document.getElementById('btnSaveStorage');
-  btnSaveStorage.addEventListener('click', () => {
-    const user = 1;
-    window.sessionStorage.setItem('user', user)
-  })
-
-  const btnGetStorage = document.getElementById('btnGetStorage');
-  btnGetStorage.addEventListener('click', () => {
-    const user = JSON.parse(window.sessionStorage.getItem('user'));
-    console.log('get storage: ', typeof user)
-  })
-
-  /* destructuring js: object && array */
-  const person = {
-    firstName: 'tony',
-    lastName: 'nguyen',
-    age: 20
-  }
-  const { firstName: _firstName, lastName } = person;
-
-  console.log('destructuring: ', {
-    _firstName,
-    lastName
-  })
-
-  // default values
-  function getProduct({ firstName, lastName = 'Default Last Name' } = {}) {
-    console.log('get data: ', {
-      firstName,
-      lastName
+    console.log('object: ', {
+      userA,
+      userB
     })
-  }
-  getProduct({
-    firstName: 'tony',
-    lastName: 'minh'
-  })
-  
 
- 
- 
-</script>
+    /* webstorage */
+    const btnSaveStorage = document.getElementById('btnSaveStorage');
+    btnSaveStorage.addEventListener('click', () => {
+      const user = 1;
+      window.sessionStorage.setItem('user', user)
+    })
+
+    const btnGetStorage = document.getElementById('btnGetStorage');
+    btnGetStorage.addEventListener('click', () => {
+      const user = JSON.parse(window.sessionStorage.getItem('user'));
+      console.log('get storage: ', typeof user)
+    })
+
+    /* destructuring js: object && array */
+    const person = {
+      firstName: 'tony',
+      lastName: 'nguyen',
+      age: 20,
+      book: {
+        title: 'javascript',
+        price: 200,
+        year: {
+          publish: 2020
+        }
+      }
+    }
+    const { 
+      firstName: _firstName, 
+      lastName,
+      book: {
+        year: {
+          publish
+        }
+      }
+    } = person;
+
+    console.log('destructuring: ', {
+      _firstName,
+      lastName,
+      publish,
+    })
+
+    // default values
+    function getProduct({ firstName, lastName = 'Default Last Name' } = {}) {
+      console.log('get data: ', {
+        firstName,
+        lastName
+      })
+    }
+    getProduct()
+
+    // ignore value of desctructuring array
+    const fruits = ['banana', 'apple', 'orange'];
+    const [fruitA, ,fruitb] = fruits;
+    console.log('desstructuring array: ', fruitA, fruitb);
+    
+
+    // swap item
+    let source = 1;
+    let destination = 3;
+    [source, destination] = [destination, source]
+    
+    // rest operator: lấy các thuộc tính còn lại
+    function getFullName({ firstName, ...rest} = {}) {
+      console.log('rest operator: ', {
+        firstName,
+        rest
+      })
+    }
+    getFullName(person);
+
+    /* function react -> component Button({ title, ...restProps } = props)
+      <button 
+        {...restProps}
+      >
+        {title}
+      </button>
+
+      // using other component
+      function Form() {
+        return (
+          <Button 
+            title="Add"
+            type="submit"
+            id="btnForm"
+            className="buttonForm"
+            onClick={onSubmit}
+          />
+        )
+      }
+
+    */
+
+    // arrow function
+    const anime = {
+      type: 'bird', // properties
+      age: 18,
+      getAge: function() { // normal function
+        console.log('normal function: ', this.age)
+      },
+      getTitle: () => { // arrow function
+        console.log('arrow function: ', this)
+      }
+    }
+
+    anime.getAge();
+    anime.getTitle();
+
+    // return arrow function
+    // const sumReturn = (x, y) => {
+    //   return { x, y }
+    // };
+    const sumReturn = (x, y) => (x + y);
+    console.log('return arrow function: ', sumReturn(1,2))
+
+    // curry function
+    const currySum = (a,c) => (b) => a + b + c;
+    console.log('currySum: ', currySum(1,2)(2))
+
+    // BE -> create API A -> require name_user
+    // FE -> call API A () -> 401
+
+    // promise
+    const p1 = new Promise((resolve, reject) => {
+        try {
+          const a = 10;
+          resolve(b)
+        } catch {
+          reject({
+            success: false,
+            message: 'please check error'
+          })
+        }
+    })
+
+    // console.log('promise p1: ', p1)
+    p1
+      .then(data => console.log("success: ", data))
+      .catch(error => console.log("error: ", error))
+    
+    // fake api
+    function callApi(apiUrl, options) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          fetch(apiUrl, options)
+            .then(data => resolve(data.json()))
+            .catch(error => reject(error))
+        }, 1000)
+      })
+    }
+
+    callApi(
+      'https://jsonplaceholder.typicode.com/todos?_limit=2', 
+      {
+        headers: {
+          "Authorization": "tony"
+        }
+      }
+    )
+      .then(data => console.log('fake api success: ', data))
+      .catch(error => console.log('fake api error: ', error))
+
+      // module javascript
+
+      // import no default
+      // import { convertStringToNumber, a, b } from './assets/js/helper.js';
+      import * as helper1 from './assets/js/helper.js';
+
+      console.log('convertStringToNumber: ', helper1.convertStringToNumber(2))
+      
+      // Imports without curly braces look nicer.
+      // Can put any name when you use import. 
+      // Can’t export  default more than one in 1 file.
+      import abc from  './assets/js/helper.js';
+      console.log('checkNumber: ', abc(2))
+
+  </script>
 
 
 
