@@ -12,8 +12,8 @@
       </section>
     </header>
     <main>
-      <div>
-        <form action="/action_page.php">
+      <section>
+        <form action="" id="issueForm">
           <label for="Title" class="py-8">Title</label><br />
           <input
             type="text"
@@ -43,10 +43,98 @@
           ><br />
 
           <div class="flex justify-end border-b border-gray-200 pb-4 pt-4">
-        <button id="addBtn" class="rounded bg-blue-500 px-4 py-2  transition hover:bg-blue-700 ">Add</button>
-      </div>
+            <button
+              id="addBtn"
+              type="button"
+              class="rounded bg-blue-500 px-4 py-2 transition hover:bg-blue-700 text-white"
+            >
+              Add
+            </button>
+          </div>
         </form>
-      </div>
+      </section>
+      <section>
+        <div class="listIssue flex justify-between pt-4">
+          <h2 class="text-3xl font-bold">List Issue</h2>
+          <input
+            type="search"
+            placeholder="Search by description "
+            class=" px-3 py-1.5 border-1 border-gray-400 item-center"
+          />
+        </div>
+        <div class="filterListIssue flex gap-11 pt-4 align-center">
+          <div><p class="text-xl">Filter:</p></div>
+          <div>
+            <button
+              class="rounded bg-blue-500 px-4 py-2 transition hover:bg-blue-700 text-white"
+            >
+              All
+            </button>
+            <button
+              class="rounded bg-green-500 px-4 py-2 transition hover:bg-green-700 text-white"
+            >
+              Open
+            </button>
+            <button
+              class="rounded bg-cyan-500 px-4 py-2 transition hover:bg-cyan-700 text-white"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+        <div class="orderByListIssue pt-4 flex gap-3 pt-4 align-center">
+          <div>
+            <p class="text-xl">Order By:</p>
+          </div>
+          <div>
+            <select
+              name="orderBy"
+              id="orderBy"
+              class="border-1 border-gray-400 w-30 p-2"
+            >
+              <option value="choose">Choose...</option>
+              <option value="ABC">Name</option>
+              <option value="...">...</option>
+            </select>
+          </div>
+        </div>
+        <div id="todos" class="rounded border border-gray-300 mt-4">
+          <div
+            class="flex gap-2 border-b border-gray-200 bg-gray-50 px-4 py-2.5 "
+          >
+            <p>1</p>
+
+            <p
+              class="rounded bg-gray-500 px-2 py-0.5 text-xs  text-white"
+            >
+              new
+        </p>
+          </div>
+
+          <div
+            class="flex min-h-24 gap-5 px-4 py-5 items-center justify-between"
+          >
+            <h3 class="text-base font-bold">delectus aut autem</h3>
+
+            <div class="flex gap-2  self-center">
+              <button
+                type="button"
+                class="rounded bg-blue-600 px-3 py-1.5  text-white transition hover:bg-blue-700"
+              >
+                Close
+              </button>
+
+              <button
+                type="button"
+                class="rounded bg-red-600 px-3 py-1.5  text-white transition hover:bg-red-700"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+    <script src="./index.js"></script>
   </body>
 </html>
