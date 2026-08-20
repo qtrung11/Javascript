@@ -15,8 +15,16 @@ const initialData = [
     severity: "low",
   },
 ];
-const tempTodos = [];
-tempTodos.push(...initialData);
+const savedIssues = localStorage.getItem("issues");
+
+const tempTodos = savedIssues
+  ? JSON.parse(savedIssues)
+  : [...initialData];
+
+function saveTodos() {
+  localStorage.setItem("issues", JSON.stringify(tempTodos));
+}
+
 
 const issueForm = document.getElementById("issueForm");
 const titleForm = document.getElementById("titleForm");
@@ -45,7 +53,9 @@ btnAddTodo.addEventListener("click", (event) => {
     description: author + " is solving",
     severity: severity,
   };
+
   tempTodos.push(newTodo);
+  saveTodos();
   renderHtmlTodo(tempTodos);
 
   issueForm.reset();
@@ -214,12 +224,44 @@ function filterStatus(tempTodos) {
 
 function orderIssueBy(tempTodos) {
   const orderBy = document.getElementById("orderBy");
-  
-
   orderBy.addEventListener("change", () => {
-    const selectedOption = orderBy.value
-    if(selectedOption === 'Alphabet'){
-      tempTodos.title
+    const selectedOption = orderBy.value;
+    if (selectedOption === "ASC") {
+      tempTodos.sort((a, b) => {
+        if (
+          a.title.toLocaleLowerCase().trim() >
+          b.title.toLocaleLowerCase().trim()
+        ) {
+          return 1;
+        } else if (
+          a.title.toLocaleLowerCase().trim() <
+          b.title.toLocaleLowerCase().trim()
+        ) {
+          return -1;
+        } else {
+          return 0;
+        }
+      });
+      renderHtmlTodo(tempTodos);
+    } else if (selectedOption === "DESC") {
+      tempTodos.sort((a, b) => {
+        if (
+          a.title.toLocaleLowerCase().trim() >
+          b.title.toLocaleLowerCase().trim()
+        ) {
+          return -1;
+        } else if (
+          a.title.toLocaleLowerCase().trim() <
+          b.title.toLocaleLowerCase().trim()
+        ) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      renderHtmlTodo(tempTodos);
+    } else {
+      renderHtmlTodo(tempTodos);
     }
   });
 }
