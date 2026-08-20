@@ -2,14 +2,14 @@ const initialData = [
   {
     id: 1,
     title: `Issue 1`,
-    author: Thomas,
+    author: "Thomas",
     status: `new`,
-    description: ` This is a issue need to be fixed`,
+    description: ` This is an issue need to be fixed`,
     severity: "low",
   },
   {
     id: 2,
-    title: "tony",
+    title: "Tony",
     status: "new",
     description: "tony test",
     severity: "low",
@@ -23,7 +23,7 @@ const todos = document.getElementById("todos");
 
 btnAddTodo.addEventListener("click", () => {
   const newTodo = {
-    id: 3,
+    id: tempTodos.length + 1,
     title: "lorem10",
     status: "new",
     description: "react test" + Date.now(),
@@ -43,15 +43,19 @@ function renderItem(item) {
     "flex gap-2 border-b border-gray-200 bg-gray-50 px-4 py-2.5",
   );
 
-  const idElement = document.createElement("p");
+  const idElement = document.createElement("span");
   idElement.innerHTML = item.id;
 
-  const statusElement = document.createElement("p");
+  const statusElement = document.createElement("span");
   statusElement.setAttribute(
     "class",
     "rounded bg-gray-500 px-2 py-0.5 text-xs  text-white",
   );
   statusElement.innerHTML = item.status;
+
+  const titleElement = document.createElement("span");
+  titleElement.setAttribute("class", "flex gap-2");
+  titleElement.innerHTML = item.title;
 
   const bodyElement = document.createElement("div");
   bodyElement.setAttribute(
@@ -86,6 +90,8 @@ function renderItem(item) {
   cardElement.appendChild(bodyElement);
 
   itemElement.appendChild(idElement);
+  itemElement.appendChild(titleElement);
+
   itemElement.appendChild(statusElement);
 
   bodyElement.appendChild(contentElement);
