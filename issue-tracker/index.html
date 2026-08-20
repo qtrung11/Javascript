@@ -17,7 +17,7 @@
           <label for="Title" class="py-8">Title</label><br />
           <input
             type="text"
-            id="Title"
+            id="titleForm"
             name="title"
             placeholder="Title..."
             class="placeholder:text-gray-500 border border-gray-400 rounded px-3 py-2 w-full"
@@ -25,7 +25,7 @@
           <label for="Author" class="py-8">Author</label><br />
           <select
             name="Author"
-            id="author"
+            id="authorForm"
             class="border border-gray-400 rounded px-3 py-2 w-full"
           >
             <option value="Thomas">Thomas</option>
@@ -34,7 +34,7 @@
           <label for="Severity">Severity</label><br />
           <select
             name="Severity"
-            id="severity"
+            id="severityForm"
             class="border border-gray-400 rounded px-3 py-2 w-full"
           >
             <option value="Low">Low</option>
@@ -45,7 +45,7 @@
           <div class="flex justify-end border-b border-gray-200 pb-4 pt-4">
             <button
               id="addBtn"
-              type="button"
+              type="submit"
               class="rounded bg-blue-500 px-4 py-2 transition hover:bg-blue-700 text-white"
             >
               Add
@@ -59,23 +59,26 @@
           <input
             type="search"
             placeholder="Search by description "
-            class=" px-3 py-1.5 border-1 border-gray-400 item-center"
+            class="px-3 py-1.5 border-1 border-gray-400 item-center"
           />
         </div>
-        <div class="filterListIssue flex gap-11 pt-4 align-center">
+        <div class="flex gap-11 pt-4 align-center">
           <div><p class="text-xl">Filter:</p></div>
-          <div>
+          <div id="filterListIssue">
             <button
+              id="allFilter"
               class="rounded bg-blue-500 px-4 py-2 transition hover:bg-blue-700 text-white"
             >
               All
             </button>
             <button
+              id="openFilter"
               class="rounded bg-green-500 px-4 py-2 transition hover:bg-green-700 text-white"
             >
               Open
             </button>
             <button
+              id="closeFilter"
               class="rounded bg-cyan-500 px-4 py-2 transition hover:bg-cyan-700 text-white"
             >
               Close
@@ -93,13 +96,14 @@
               class="border-1 border-gray-400 w-30 p-2"
             >
               <option value="choose">Choose...</option>
-              <option value="ABC">Name</option>
+              <option id="alphabet" value="Alphabet">Alphabet</option>
+              <option id="numbers" value="numbers">Id</option>
               <option value="...">...</option>
             </select>
           </div>
         </div>
         <div id="todos" class="rounded border border-gray-300 mt-4">
-          <div
+          <!-- <div
             class="flex gap-2 border-b border-gray-200 bg-gray-50 px-4 py-2.5 "
           >
             <p>1</p>
@@ -131,7 +135,7 @@
                 Delete
               </button>
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
     </main>
