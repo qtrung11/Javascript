@@ -17,14 +17,11 @@ const initialData = [
 ];
 const savedIssues = localStorage.getItem("issues");
 
-const tempTodos = savedIssues
-  ? JSON.parse(savedIssues)
-  : [...initialData];
+const tempTodos = savedIssues ? JSON.parse(savedIssues) : [...initialData];
 
 function saveTodos() {
   localStorage.setItem("issues", JSON.stringify(tempTodos));
 }
-
 
 const issueForm = document.getElementById("issueForm");
 const titleForm = document.getElementById("titleForm");
@@ -265,6 +262,50 @@ function orderIssueBy(tempTodos) {
     }
   });
 }
+function searchByDescription(tempTodos) {
+  const searchByDescription = document.getElementById("searchByDescription");
+  searchByDescription.addEventListener("input", () => {
+    const keyword = searchByDescription.value.trim().toLocaleLowerCase();
+    console.log(keyword);
+    const searched = tempTodos.filter((item) => {
+      return item.description.toLocaleLowerCase().includes(keyword);
+    });
+
+    if (searched.length > 0) {
+      renderHtmlTodo(searched);
+    } else {
+      renderNotFound(searched)
+    }
+  });
+}
+function renderNotFound() {
+  todos.innerHTML = "";
+
+  const notFoundElement = document.createElement("div");
+  notFoundElement.setAttribute(
+    "class",
+    "mt-4 flex min-h-52 flex-col items-center justify-center rounded border border-red-200 bg-red-50 px-4 py-8 text-center"
+  );
+
+  const xElement = document.createElement("div");
+  xElement.setAttribute(
+    "class",
+    "not-found-x mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-red-500 text-3xl font-bold text-white"
+  );
+  xElement.textContent = "×";
+
+  const titleElement = document.createElement("h3");
+  titleElement.setAttribute("class", "text-lg font-bold text-red-700");
+  titleElement.textContent = "Result not found";
+
+ 
+
+  notFoundElement.appendChild(xElement);
+  notFoundElement.appendChild(titleElement);
+
+  todos.appendChild(notFoundElement);
+}
 filterStatus(tempTodos);
 orderIssueBy(tempTodos);
 renderHtmlTodo(tempTodos);
+searchByDescription(tempTodos);
