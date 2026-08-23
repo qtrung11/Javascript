@@ -93,15 +93,16 @@ function headerRender(item) {
   titleElement.innerHTML = item.title;
 
   const statusElement = document.createElement("span");
+  const defaultClass = 'rounded items-center bg-green-500 px-2 py-0.5 text-xs'
   if (item.status === "Open") {
     statusElement.setAttribute(
       "class",
-      "rounded items-center bg-green-500 px-2 py-0.5 text-xs  text-white",
+      `${defaultClass} text-white`
     );
   } else {
     statusElement.setAttribute(
       "class",
-      "rounded items-center bg-cyan-500 px-2 py-0.5 text-xs  text-white",
+      defaultClass + "text-white",
     );
   }
   statusElement.innerHTML = item.status;
@@ -219,64 +220,34 @@ function filterStatus(tempTodos) {
   });
 }
 
-function orderIssueBy(tempTodos) {
-  const orderBy = document.getElementById("orderBy");
-  orderBy.addEventListener("change", () => {
-    const selectedOption = orderBy.value;
-    if (selectedOption === "ASC") {
-      tempTodos.sort((a, b) => {
-        if (
-          a.title.toLocaleLowerCase().trim() >
-          b.title.toLocaleLowerCase().trim()
-        ) {
-          return 1;
-        } else if (
-          a.title.toLocaleLowerCase().trim() <
-          b.title.toLocaleLowerCase().trim()
-        ) {
-          return -1;
-        } else {
-          return 0;
-        }
-      });
-      renderHtmlTodo(tempTodos);
-    } else if (selectedOption === "DESC") {
-      tempTodos.sort((a, b) => {
-        if (
-          a.title.toLocaleLowerCase().trim() >
-          b.title.toLocaleLowerCase().trim()
-        ) {
-          return -1;
-        } else if (
-          a.title.toLocaleLowerCase().trim() <
-          b.title.toLocaleLowerCase().trim()
-        ) {
-          return 1;
-        } else {
-          return 0;
-        }
-      });
-      renderHtmlTodo(tempTodos);
-    } else {
-      renderHtmlTodo(tempTodos);
-    }
+function orderIssueAsc() {
+  tempTodos.sort((a, b) => {
+    if (a.title.toLocaleLowerCase().trim() > b.title.toLocaleLowerCase().trim()) return 1;
+    if (a.title.toLocaleLowerCase().trim() < b.title.toLocaleLowerCase().trim()) return -1; 
+    return 0;
   });
+  renderHtmlTodo(tempTodos);
 }
-function searchByDescription(tempTodos) {
-  const searchByDescription = document.getElementById("searchByDescription");
-  searchByDescription.addEventListener("input", () => {
-    const keyword = searchByDescription.value.trim().toLocaleLowerCase();
-    console.log(keyword);
-    const searched = tempTodos.filter((item) => {
-      return item.description.toLocaleLowerCase().includes(keyword);
-    });
 
-    if (searched.length > 0) {
-      renderHtmlTodo(searched);
-    } else {
-      renderNotFound(searched)
-    }
+function orderIssueDesc() {
+  tempTodos.sort((a, b) => {
+    if (a.title.toLocaleLowerCase().trim() > b.title.toLocaleLowerCase().trim()) return -1;
+    if (a.title.toLocaleLowerCase().trim() < b.title.toLocaleLowerCase().trim()) return 1; 
+    return 0;
   });
+  renderHtmlTodo(tempTodos);
+}
+
+function searchByDescription(keyword) {
+  const searched = tempTodos.filter((item) => {
+    return item.description.toLocaleLowerCase().includes(keyword);
+  });
+
+  if (searched.length > 0) {
+    renderHtmlTodo(searched);
+  } else {
+    renderNotFound(searched)
+  }
 }
 function renderNotFound() {
   todos.innerHTML = "";
@@ -305,7 +276,50 @@ function renderNotFound() {
 
   todos.appendChild(notFoundElement);
 }
-filterStatus(tempTodos);
-orderIssueBy(tempTodos);
+// filter
+const allFilter = document.getElementById("allFilter");
+const openFilter = document.getElementById("openFilter");
+const closeFilter = document.getElementById("closeFilter");
+
+allFilter.addEventListener("click", () => {
+  renderHtmlTodo(tempTodos);
+});
+
+openFilter.addEventListener("click", () => {
+  const openFiltered = tempTodos.filter(
+    (elementInTempTodos) => elementInTempTodos.status === "Open",
+  );
+  renderHtmlTodo(openFiltered);
+});
+
+closeFilter.addEventListener("click", () => {
+  const closeFiltered = tempTodos.filter(
+    (elementInTempTodos) => elementInTempTodos.status === "Close",
+  );
+  renderHtmlTodo(closeFiltered);
+});
+
+// orderIssueBy(tempTodos);
 renderHtmlTodo(tempTodos);
-searchByDescription(tempTodos);
+// searchByDescription(tempTodos);
+
+const orderBy = document.getElementById("orderBy");
+orderBy.addEventListener("change", () => {
+  const selectedOption = orderBy.value;
+  if (selectedOption === "ASC") {
+    orderIssueAsc();
+    return;
+  }
+  if (selectedOption === "DESC") {
+    orderIssueDesc();
+    return;
+  }
+  renderHtmlTodo(tempTodos);
+});
+
+const searchByDescription = document.getElementById("searchByDescription");
+searchByDescription.addEventListener("input", () => {
+  const keyword = searchByDescription.value.trim().toLocaleLowerCase();
+  searchByDescription(keyword);
+});
+
