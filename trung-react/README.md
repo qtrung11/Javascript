@@ -14,3 +14,9 @@
 - framework: angular
   - có sẵn 1 bộ khung
   - include libs: angular route, angular http
+
+# Naming convention
+- camelCase: name variable, name function
+- UPPERCASE: constant (config folder)
+- lower-case: name file react component, name folder
+- PascalCase: name react component
