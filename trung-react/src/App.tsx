@@ -1,6 +1,10 @@
+import Components from "./pages/foundation/component"
+import ConditionalRendering from "./pages/foundation/conditional-rendering"
+import List from "./pages/foundation/list"
 import Props from "./pages/foundation/props"
 import ReactJsx from "./pages/foundation/react-jsx"
 import State from "./pages/foundation/state"
+import ComposeComponent from "./pages/sample-app/compose-component/compose-component"
 
 function App() {
   
@@ -14,6 +18,20 @@ function App() {
 
       <br /><br />
       <State />
+
+      <br />
+      <br />
+      <Components />
+
+      <br/> <br/>
+      <ComposeComponent />
+
+      <br /><br />
+      <ConditionalRendering />
+
+
+      <br /><br />
+      <List />
 
       <br /><br />
       <br /><br />

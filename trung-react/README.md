@@ -20,3 +20,9 @@
 - UPPERCASE: constant (config folder)
 - lower-case: name file react component, name folder
 - PascalCase: name react component
+
+# Interview
+## How many way to render component?
+- state change
+- props change
+- parent component re-render

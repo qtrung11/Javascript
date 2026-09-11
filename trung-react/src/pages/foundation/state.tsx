@@ -8,7 +8,7 @@ import Button from "../../components/atoms/button";
 
 function State() {
   // state
-  const [number, setNumber] = React.useState(3);
+  const [number, setNumber] = React.useState(3); // local state
   const [message, setMessage] = React.useState({
     text: '',
     name: 'trung'

@@ -1,10 +1,10 @@
 import type React from "react"
 
 interface ButtonProps {
-  children: React.ReactNode,
+  children?: React.ReactNode,
   className?: string,
   type?: "submit" | "reset" | "button" | undefined,
-  onClick: () => void
+  onClick?: () => void
 }
 
 function Button({ type = 'button', children, className = '', ...restProps }: ButtonProps) {
