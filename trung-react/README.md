@@ -30,3 +30,4 @@
 # Git
 - Repository: github, gitlab ...
 - Git CLI
+- Git state: committed, update, delete, modified
