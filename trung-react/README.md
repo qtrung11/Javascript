@@ -58,7 +58,10 @@ $ git commit -m "create promotion modal"
 $ git push
 
 ## Step review
-
+1. Create PR on github
+  - PR for dev
+  - PR for qc
+  - PR for main
 
 ```
 
