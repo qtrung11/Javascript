@@ -26,3 +26,7 @@
 - state change
 - props change
 - parent component re-render
+
+# Git
+- Repository: github, gitlab ...
+- Git CLI
