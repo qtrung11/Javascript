@@ -23,7 +23,6 @@ interface ProductProps {
 
 function ConditionalRendering() {
   const [products, setProducts] = React.useState<ProductProps[]>([]);
-
   function addProduct() {
     const item = {
       id: Date.now(),
@@ -44,7 +43,7 @@ function ConditionalRendering() {
           <div>
             {products.map((product) => {
               return (
-                <div key={product.id}>
+                <div key={product.id} className="text-conditional">
                   Title: {product.title}
                 </div>
               )

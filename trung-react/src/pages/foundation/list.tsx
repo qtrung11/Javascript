@@ -48,7 +48,7 @@ function List() {
           </div>
         )}
       </div>
-      <Button onClick={addProduct}>Add Product</Button>
+      <Button onClick={addProduct} variant="warning">Add Product</Button>
 
     </div>
   )

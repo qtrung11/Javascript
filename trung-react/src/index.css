@@ -3,3 +3,7 @@
 body {
   padding: 10px;
 }
+
+.text-conditional {
+  color: #f00;
+}
