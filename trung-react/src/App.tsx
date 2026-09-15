@@ -5,6 +5,7 @@ import Props from "./pages/foundation/props"
 import ReactJsx from "./pages/foundation/react-jsx"
 import State from "./pages/foundation/state"
 import ComposeComponent from "./pages/sample-app/compose-component/compose-component"
+import PageGuestGreeting from "./pages/sample-app/guest-greeting.tsx/guest-greeting"
 
 function App() {
   
@@ -25,6 +26,8 @@ function App() {
 
       <br/> <br/>
       <ComposeComponent />
+      <br /><br />
+      <PageGuestGreeting/>
 
       <br /><br />
       <ConditionalRendering />
