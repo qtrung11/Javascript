@@ -1,3 +1,6 @@
+## Stack
+- react hook form + yup/zod -> handle form + validate form
+
 ## Terms
 - first render
 - re-render (next render)
@@ -86,3 +89,4 @@ $ git add .
 $ git commit -m "message"
 $ git push
 ```
+

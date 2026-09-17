@@ -7,11 +7,9 @@ import Props from "./pages/foundation/props"
 import ReactJsx from "./pages/foundation/react-jsx"
 import State from "./pages/foundation/state"
 import ComposeComponent from "./pages/sample-app/compose-component/compose-component"
-<<<<<<< HEAD
 import PageGuestGreeting from "./pages/sample-app/guest-greeting.tsx/guest-greeting"
-=======
 import Todo from "./pages/foundation/props-lifting/todo"
->>>>>>> a279918e4f3a7a6e99d9084992149d9a446c4dba
+import Form from "./pages/foundation/form"
 
 function App() {
   const [menu, setMenu] = React.useState([
@@ -84,16 +82,12 @@ function App() {
         <br /><br />
         <State />
 
-<<<<<<< HEAD
-      <br/> <br/>
-      <ComposeComponent />
-      <br /><br />
-      <PageGuestGreeting/>
-=======
+        <br /><br />
+        <PageGuestGreeting/>
+        
         <br />
         <br />
         <Components />
->>>>>>> a279918e4f3a7a6e99d9084992149d9a446c4dba
 
         <br/> <br/>
         <ComposeComponent />
@@ -107,6 +101,9 @@ function App() {
 
         <br /><br />
         <Todo />
+
+        <br /><br />
+        <Form />
       </div>
 
       
