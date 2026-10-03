@@ -1,23 +1,24 @@
-import UserGreeting from "../../../components/atoms/userGreeting";
-import GuestGreeting from "../../../components/atoms/guestGreeting";
-import React from "react"
+import { useState } from "react";
+import UserGreeting from "./mocules/user-greeting";
+import GuestGreeting from "./mocules/guest-greeting";
+
 export default function PageGuestGreeting() {
-    const [login,setLogin] = React.useState(false)
-      function isLogin (){
-        setLogin((prevState)=>{
-            if (prevState){
-                return false
-            }else{
-                return true
-            }
-        })
-      }
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  function handleLogin() {
+    setIsLoggedIn(true);
+  }
+
+  function handleLogout() {
+    setIsLoggedIn(false);
+  }
   return (
-    <>
-      <h1 >Guest Greeting</h1>
-        
-      <UserGreeting></UserGreeting>
-      <GuestGreeting></GuestGreeting>
-    </>
+    <div>
+      {isLoggedIn ? (
+        <UserGreeting  text="Welcome to" name="Tony" onLogout={handleLogout} />
+      ) : (
+        <GuestGreeting text="Please sign up." onLogin={handleLogin} />
+      )}
+    </div>
   );
 }

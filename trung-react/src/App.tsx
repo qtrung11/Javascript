@@ -1,21 +1,22 @@
-import React from "react"
-import Sidebar from "./components/organisms/sidebar"
-import Components from "./pages/foundation/component"
-import ConditionalRendering from "./pages/foundation/conditional-rendering"
-import List from "./pages/foundation/list"
-import Props from "./pages/foundation/props"
-import ReactJsx from "./pages/foundation/react-jsx"
-import State from "./pages/foundation/state"
-import ComposeComponent from "./pages/sample-app/compose-component/compose-component"
-import PageGuestGreeting from "./pages/sample-app/guest-greeting.tsx/guest-greeting"
-import Todo from "./pages/foundation/props-lifting/todo"
-import Form from "./pages/foundation/form"
+import React from "react";
+import Sidebar from "./components/organisms/sidebar";
+import Components from "./pages/foundation/component";
+import ConditionalRendering from "./pages/foundation/conditional-rendering";
+import List from "./pages/foundation/list";
+import Props from "./pages/foundation/props";
+import ReactJsx from "./pages/foundation/react-jsx";
+import State from "./pages/foundation/state";
+import ComposeComponent from "./pages/sample-app/compose-component/compose-component";
+import Todo from "./pages/foundation/props-lifting/todo";
+import Form from "./pages/foundation/form";
+import PageGuestGreeting from "./pages/sample-app/guest-greeting.tsx/guest-greeting";
+import GenerateBox from "./pages/sample-app/generate-box/generateBox";
 
 function App() {
   const [menu, setMenu] = React.useState([
     {
       id: 1,
-      title: 'Dashboard',
+      title: "Dashboard",
       icon: (
         <svg
           className="w-5 h-5 transition duration-75 group-hover:text-fg-brand"
@@ -41,11 +42,11 @@ function App() {
             d="M13.5 3c-.169 0-.334.014-.5.025V11h7.975c.011-.166.025-.331.025-.5A7.5 7.5 0 0 0 13.5 3Z"
           />
         </svg>
-      )
+      ),
     },
     {
       id: 2,
-      title: 'Kanban',
+      title: "Kanban",
       icon: (
         <svg
           className="shrink-0 w-5 h-5 transition duration-75 group-hover:text-fg-brand"
@@ -64,10 +65,10 @@ function App() {
             d="M15 5v14M9 5v14M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z"
           />
         </svg>
-      )
-    }
-  ])
-  
+      ),
+    },
+  ]);
+
   return (
     <>
       <Sidebar menu={menu} />
@@ -75,45 +76,53 @@ function App() {
       <div className="p-4 sm:ml-64">
         <h1 className="text-2xl font-bold">React JSX</h1>
         <ReactJsx />
-
-        <br /><br />
+        <br />
+        <br />
         <Props />
-
-        <br /><br />
+        <br />
+        <br />
         <State />
-
-        <br /><br />
-        <PageGuestGreeting/>
-        
+        <br />
+        <br />
+        <PageGuestGreeting />
         <br />
         <br />
         <Components />
-
-        <br/> <br/>
+        <br /> <br />
         <ComposeComponent />
-
-        <br /><br />
+        <br />
+        <br />
         <ConditionalRendering />
-
-
-        <br /><br />
+        <br />
+        <br />
         <List />
-
-        <br /><br />
+        <br />
+        <br />
         <Todo />
-
-        <br /><br />
+        <br />
+        <br />
         <Form />
+        <br />
+        <br />
+        <br />
+        <PageGuestGreeting />
+        <br />
+        <br />
+        <br />
+        <GenerateBox />
       </div>
 
-      
+      <br />
+      <br />
 
-      <br /><br />
-      <br /><br />
-      <br /><br />
-      <br /><br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
