@@ -28,30 +28,13 @@ function App() {
 
       {/* <div className="p-4 sm:ml-64">
         <h1 className="text-2xl font-bold">React JSX</h1>
-        <br />
-        <br />
-        <br />
-        <br />
-        <State />
-        <br />
-        <br />
-        <PageGuestGreeting />
-        <br />
-        <br />
-        <Components />
-        <br /> <br />
-        <ComposeComponent />
-        <br />
-        <br />
-        <ConditionalRendering />
-        <br />
-        <br />
-        <List />
-        <br />
-        <br />
-        <Todo />
-        <br />
-        <br />
+        
+        
+        
+        
+        
+        
+        
         <Form />
         <br />
         <br />

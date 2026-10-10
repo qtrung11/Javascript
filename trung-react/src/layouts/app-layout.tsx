@@ -19,7 +19,14 @@ function AppLayout() {
     { name: "react-jsx", path: "/react-jsx", icon: dashboardicon },
     { name: "props", path: "/props", icon: overviewicon },
     { name: "User", path: "/user", icon: overviewicon },
-    { name: "GenerateBox", path: "/generate-box", icon: overviewicon },
+    { name: "State", path: "/state", icon: overviewicon },
+    { name: "Components", path: "/components", icon: overviewicon },
+    { name: "ConditionalRendering", path: "/conditional-rendering", icon: overviewicon },
+    { name: "List", path: "/list", icon: overviewicon },
+    { name: "Todo", path: "/todo", icon: overviewicon },
+    { name: "Form", path: "/form", icon: overviewicon },
+    { name: "CommonConfirm", path: "/common-confirm", icon: overviewicon },
+    { name: "SampleApp", path: "/sample-app", icon: overviewicon },
   ];
 
   return (

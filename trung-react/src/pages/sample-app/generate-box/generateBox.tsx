@@ -56,7 +56,7 @@ export default function GenerateBox() {
      <h1 className="text-4xl font-extrabold ">Sample App - Generate Box</h1>
     <h2>Number of boxes: </h2>
      <input min="0" max="128" type="number" placeholder="enter number 1-128" value={input} onChange={(event) => setInput(Number(event.target.value))}/>
-    <button className="border" type="button" onClick={generateBoxes}>Generate</button>
+    <button className="border bg-yellow-500 hover:bg-yellow-800 cursor-pointer" type="button" onClick={generateBoxes}>Generate</button>
 
     {numberOfBoxes === 0 ? (
         <p>no box</p>
