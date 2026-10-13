@@ -1,6 +1,7 @@
 import React from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
+import { Outlet } from "react-router";
 
 
 export interface Todo {
@@ -20,6 +21,7 @@ export default function LiftingStateUp() {
   function deleteTodo(id: number) {
     setTodos((prevState) => prevState.filter((todo) => todo.id !== id));
   }
+
   return (
     <main className="min-h-screen bg-white px-5 py-4">
       <section className="mx-auto max-w-4xl">
@@ -32,6 +34,10 @@ export default function LiftingStateUp() {
         </h2>
         <TodoList todos={todos} deleteTodo={deleteTodo} />
       </section>
+
+      <div>
+        <Outlet />
+      </div>
     </main>
   );
 }
