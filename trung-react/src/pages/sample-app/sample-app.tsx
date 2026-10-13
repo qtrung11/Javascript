@@ -1,12 +1,12 @@
-import { useNavigate } from 'react-router'
+import { Outlet, useNavigate } from 'react-router'
 import UserListItem from './components/mocules/sample-app-list'
 
 
 const users = [
-  { name: 'Compose Component', url: '/compose-component' },
-  { name: 'Generate Box', url: '/generate-box' },
-  { name: 'Page Guest Greeting', url: '/page-guest-greeting' },
-  { name: 'Lifting State Up', url: "/lifting-state-up" },
+  { name: 'Compose Component', url: '/sample-app/compose-component' },
+  { name: 'Generate Box', url: '/sample-app/generate-box' },
+  { name: 'Page Guest Greeting', url: '/sample-app/page-guest-greeting' },
+  { name: 'Lifting State Up', url: "/sample-app/lifting-state-up" },
 ]
 
 function SampleApp() {
@@ -28,6 +28,12 @@ function SampleApp() {
           />
         ))}
       </ul>
+
+      <br /> <br/>
+
+      <div>
+        <Outlet />
+      </div>
     </div>
   )
 }

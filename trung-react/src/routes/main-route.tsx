@@ -17,12 +17,18 @@ import Todo from "../pages/foundation/props-lifting/todo";
 import CommonConfirm from "../pages/foundation/common-confirm";
 import Form from "../pages/foundation/form";
 import { SampleApp } from "../pages/sample-app";
+import TodoDetail from "../pages/sample-app/lifting-state-up/components/TodoDetail";
+import { Login } from "../pages/login";
+import AuthRoute from "./auth-route";
+import GuestRoute from "./guest-route";
+import ContactUs from "../pages/contact-us/contact-us";
+import Error401 from "../pages/error-401/error-401";
 
 export const mainRoute = createBrowserRouter([
   // single route
   {
     path: "/",
-    Component: AppLayout,
+    element: <AuthRoute><AppLayout /></AuthRoute>,
     children: [
       {
         path: "/react-jsx",
@@ -50,18 +56,10 @@ export const mainRoute = createBrowserRouter([
         Component: State,
       },
       {
-        path: "/page-guest-greeting",
-        Component: PageGuestGreeting,
-      },
-
-      {
         path: "/components",
         Component: Components,
       },
-      {
-        path: "/compose-component",
-        Component: ComposeComponent,
-      },
+     
       {
         path: "/conditional-rendering",
         Component: ConditionalRendering,
@@ -84,16 +82,44 @@ export const mainRoute = createBrowserRouter([
       },
       {
         path: "/sample-app",
-        Component: SampleApp
+        Component: SampleApp,
+        children: [
+          {
+            path: "compose-component",
+            Component: ComposeComponent,
+          },
+          {
+            path: "generate-box",
+            Component: GenerateBox
+          },
+          {
+            path: "lifting-state-up",
+            Component: LiftingStateUp,
+            children: [
+              {
+                path: ":id",
+                Component: TodoDetail,
+              }
+            ]
+          },
+          {
+            path: "page-guest-greeting",
+            Component: PageGuestGreeting,
+          },
+        ]
       },
-      {
-        path: "/lifting-state-up",
-        Component: LiftingStateUp
-      },
-      {
-        path: "/generate-box",
-        Component: GenerateBox
-      }
     ],
   },
+  {
+    path: "/login",
+    element: <GuestRoute><Login /></GuestRoute>,
+  },
+  {
+    path: "contact-us",
+    Component: ContactUs
+  },
+  {
+    path: "/error-401",
+    Component: Error401
+  }
 ]);

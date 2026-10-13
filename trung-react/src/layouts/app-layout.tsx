@@ -29,6 +29,8 @@ function AppLayout() {
     { name: "SampleApp", path: "/sample-app", icon: overviewicon },
   ];
 
+  console.log('app layout')
+
   return (
     <>
       <Header />
