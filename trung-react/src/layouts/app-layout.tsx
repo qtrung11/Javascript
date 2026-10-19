@@ -27,6 +27,7 @@ function AppLayout() {
     { name: "Form", path: "/form", icon: overviewicon },
     { name: "CommonConfirm", path: "/common-confirm", icon: overviewicon },
     { name: "SampleApp", path: "/sample-app", icon: overviewicon },
+    { name: "BookKeeper", path: "/book-keeper", icon: overviewicon },
   ];
 
   return (

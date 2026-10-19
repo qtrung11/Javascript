@@ -17,6 +17,12 @@ import Todo from "../pages/foundation/props-lifting/todo";
 import CommonConfirm from "../pages/foundation/common-confirm";
 import Form from "../pages/foundation/form";
 import { SampleApp } from "../pages/sample-app";
+import { QuestionBoard } from "../pages/sample-app/question-board";
+import { BookKeeper } from "../pages/sample-app/book-keeper";
+import Contact from "../pages/sample-app/book-keeper/contact";
+import Invoice from "../pages/sample-app/book-keeper/invoice";
+import InvoiceDetail from "../pages/sample-app/book-keeper/invoice-detail";
+import { ColorBox } from "../pages/sample-app/color-box";
 
 export const mainRoute = createBrowserRouter([
   // single route
@@ -93,7 +99,39 @@ export const mainRoute = createBrowserRouter([
       {
         path: "/generate-box",
         Component: GenerateBox
-      }
+      },
+      {
+        path: "/question-board",
+        Component: QuestionBoard
+      },
+      {
+        path: "/book-keeper",
+        Component: BookKeeper,
+        children: [
+          {
+            path: "invoice",
+            Component: Invoice,
+            children: [
+              {
+                index: true,
+                element: <div>Select a invoice</div>
+              },
+              {
+                path: ":id",
+                Component: InvoiceDetail
+              },
+            ]
+          },
+          {
+            path: "contact",
+            Component: Contact
+          },
+        ]
+      },
+      {
+        path: "/color-box",
+        Component: ColorBox
+      },
     ],
   },
 ]);
