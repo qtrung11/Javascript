@@ -7,6 +7,8 @@ const users = [
   { name: 'Generate Box', url: '/generate-box' },
   { name: 'Page Guest Greeting', url: '/page-guest-greeting' },
   { name: 'Lifting State Up', url: "/lifting-state-up" },
+  { name: 'Question Board', url: "/question-board" },
+  { name: 'Color Box', url: "/color-box" },
 ]
 
 function SampleApp() {

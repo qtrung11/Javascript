@@ -8,6 +8,97 @@ body {
   color: #f00;
 }
 
+main {
+  flex-grow: 1;
+}
+
+.question_board {
+  display: flex;
+  justify-content: space-between;
+}
+
 input {
   border: 1px solid #000
+}
+
+.boards {
+  display: grid;
+  row-gap: 16px;
+  margin-top: 20px
+}
+
+.question {
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 4px;
+    padding: 16px;
+    display: flex;
+    align-items: center
+}
+
+.question__title {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 0
+}
+
+.question__metadata {
+    font-size: 14px;
+    color: #444
+}
+
+.question__status {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  margin-right: 5px
+}
+
+.question__status--correct {
+  background-color: green
+}
+
+.question__status--incorrect {
+  background-color: red
+}
+
+.question__status--partially_correct {
+  background-color: #000
+}
+
+.question__status--none {
+  background-color: #dcdcdc
+}
+
+
+.boxColor {
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap
+}
+
+.boxColor div {
+    height: 50px;
+    width: 45%;
+    margin: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.red {
+    background-color: red
+}
+
+.yellow {
+    background-color: #ff0
+}
+
+.aqua {
+    background-color: #0ff
+}
+
+.purple {
+    background-color: purple
 }

@@ -17,10 +17,7 @@ function Sidebar({ menu }: SidebarProps) {
   return (
     <div className="md:w-64 w-16 border-r h-137.5 text-base border-gray-300 pt-4 flex flex-col transition-all duration-300">
       {menu.map((item, index) => (
-          <Link to={item.path} key={index}
-              className={`flex items-center py-3 px-4 gap-3 
-                  `
-              }
+          <Link to={item.path} key={index} className={`flex items-center py-3 px-4 gap-3`}
           >
               {item.icon}
               <p className="md:block hidden text-center">{item.name}</p>
