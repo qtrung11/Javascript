@@ -17,7 +17,6 @@ import Todo from "../pages/foundation/props-lifting/todo";
 import CommonConfirm from "../pages/foundation/common-confirm";
 import Form from "../pages/foundation/form";
 import { SampleApp } from "../pages/sample-app";
-<<<<<<< HEAD
 import TodoDetail from "../pages/sample-app/lifting-state-up/components/TodoDetail";
 import { Login } from "../pages/login";
 import AuthRoute from "./auth-route";
@@ -25,14 +24,13 @@ import GuestRoute from "./guest-route";
 import Error401 from "../pages/error-401/error-401";
 import ContactUs from "../pages/contact-us/contact-us";
 
-=======
 import { QuestionBoard } from "../pages/sample-app/question-board";
 import { BookKeeper } from "../pages/sample-app/book-keeper";
 import Contact from "../pages/sample-app/book-keeper/contact";
 import Invoice from "../pages/sample-app/book-keeper/invoice";
 import InvoiceDetail from "../pages/sample-app/book-keeper/invoice-detail";
 import { ColorBox } from "../pages/sample-app/color-box";
->>>>>>> origin
+import UseEffect from "../pages/foundation/use-effect";
 
 export const mainRoute = createBrowserRouter([
   // single route
@@ -118,8 +116,6 @@ export const mainRoute = createBrowserRouter([
           },
         ]
       },
-<<<<<<< HEAD
-=======
       {
         path: "/lifting-state-up",
         Component: LiftingStateUp
@@ -131,6 +127,10 @@ export const mainRoute = createBrowserRouter([
       {
         path: "/question-board",
         Component: QuestionBoard
+      },
+      {
+        path: "/use-effect",
+        Component: UseEffect,
       },
       {
         path: "/book-keeper",
@@ -160,7 +160,6 @@ export const mainRoute = createBrowserRouter([
         path: "/color-box",
         Component: ColorBox
       },
->>>>>>> origin
     ],
   },
   {

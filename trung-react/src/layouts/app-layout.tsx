@@ -28,6 +28,7 @@ function AppLayout() {
     { name: "CommonConfirm", path: "/common-confirm", icon: overviewicon },
     { name: "SampleApp", path: "/sample-app", icon: overviewicon },
     { name: "BookKeeper", path: "/book-keeper", icon: overviewicon },
+    { name: "useEffect", path: "/use-effect", icon: overviewicon },
   ];
 
   return (

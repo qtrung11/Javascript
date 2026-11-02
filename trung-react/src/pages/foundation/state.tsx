@@ -6,9 +6,14 @@ import Button from "../../components/atoms/button";
   - <xx> </xxx>
 */
 
+function createNumber() {
+  console.log('createNumber')
+  return 3;
+}
+
 function State() {
   // state
-  const [number, setNumber] = React.useState(3); // local state
+  const [number, setNumber] = React.useState(createNumber); // local state
   const [message, setMessage] = React.useState({
     text: '',
     name: 'trung'
@@ -16,7 +21,15 @@ function State() {
 
   // action
   function increment() {
-    setNumber(number)
+    setNumber(prevState => prevState + 1)
+    setNumber(prevState => prevState + 1)
+    setNumber(prevState => prevState + 1)
+    setNumber(prevState => prevState + 1)
+  
+    setMessage(prevState => ({
+      ...prevState,
+      text: 'Tony' + Date.now(),
+    }))
   }
 
   function updateMessage() {
@@ -25,7 +38,7 @@ function State() {
     //   ...message,
     //   text: 'Tony' + Date.now(),
     // }; // copy object, create new memory B
-    // setMessage(newMessage);
+    // setMessage(message); // memory A
 
     // callback/updater function
     setMessage((prevState) => {

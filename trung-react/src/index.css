@@ -102,3 +102,29 @@ input {
 .purple {
     background-color: purple
 }
+
+
+.boxEffect {
+  width: 200px;
+  height: 100px;
+  border: 1px solid #000;
+}
+
+.boxEffect1 {
+  background-color: #dcdcdc;
+}
+
+.boxEffect2 {
+  background-color: aqua;
+  opacity: 1;
+  transition: all .3s linear;
+}
+
+.boxEffect2:hover {
+  opacity: 0;
+  /* background-color: #ff0; */
+}
+
+.boxEffect3 {
+  background-color: blueviolet;
+}
