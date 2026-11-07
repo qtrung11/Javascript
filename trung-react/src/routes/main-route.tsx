@@ -31,12 +31,17 @@ import Invoice from "../pages/sample-app/book-keeper/invoice";
 import InvoiceDetail from "../pages/sample-app/book-keeper/invoice-detail";
 import { ColorBox } from "../pages/sample-app/color-box";
 import UseEffect from "../pages/foundation/use-effect";
+import { TrafficLight } from "../pages/sample-app/TrafficLight";
 
 export const mainRoute = createBrowserRouter([
   // single route
   {
     path: "/",
-    element: <AuthRoute><AppLayout /></AuthRoute>,
+    element: (
+      <AuthRoute>
+        <AppLayout />
+      </AuthRoute>
+    ),
     children: [
       {
         path: "/react-jsx",
@@ -67,7 +72,7 @@ export const mainRoute = createBrowserRouter([
         path: "/components",
         Component: Components,
       },
-     
+
       {
         path: "/conditional-rendering",
         Component: ConditionalRendering,
@@ -98,7 +103,7 @@ export const mainRoute = createBrowserRouter([
           },
           {
             path: "generate-box",
-            Component: GenerateBox
+            Component: GenerateBox,
           },
           {
             path: "lifting-state-up",
@@ -107,26 +112,26 @@ export const mainRoute = createBrowserRouter([
               {
                 path: ":id",
                 Component: TodoDetail,
-              }
-            ]
+              },
+            ],
           },
           {
             path: "page-guest-greeting",
             Component: PageGuestGreeting,
           },
-        ]
+        ],
       },
       {
         path: "/lifting-state-up",
-        Component: LiftingStateUp
+        Component: LiftingStateUp,
       },
       {
         path: "/generate-box",
-        Component: GenerateBox
+        Component: GenerateBox,
       },
       {
         path: "/question-board",
-        Component: QuestionBoard
+        Component: QuestionBoard,
       },
       {
         path: "/use-effect",
@@ -142,36 +147,44 @@ export const mainRoute = createBrowserRouter([
             children: [
               {
                 index: true,
-                element: <div>Select a invoice</div>
+                element: <div>Select a invoice</div>,
               },
               {
                 path: ":id",
-                Component: InvoiceDetail
+                Component: InvoiceDetail,
               },
-            ]
+            ],
           },
           {
             path: "contact",
-            Component: Contact
+            Component: Contact,
           },
-        ]
+        ],
       },
       {
         path: "/color-box",
-        Component: ColorBox
+        Component: ColorBox,
+      },
+      {
+        path: "/traffic-light",
+        Component: TrafficLight,
       },
     ],
   },
   {
     path: "/login",
-    element: <GuestRoute><Login /></GuestRoute>,
+    element: (
+      <GuestRoute>
+        <Login />
+      </GuestRoute>
+    ),
   },
   {
     path: "contact-us",
-    Component: ContactUs
+    Component: ContactUs,
   },
   {
     path: "/error-401",
-    Component: Error401
-  }
+    Component: Error401,
+  },
 ]);

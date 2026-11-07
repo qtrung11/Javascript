@@ -1,21 +1,21 @@
-import { useNavigate } from 'react-router'
-import UserListItem from './components/mocules/sample-app-list'
-
+import { useNavigate } from "react-router";
+import UserListItem from "./components/mocules/sample-app-list";
 
 const users = [
-  { name: 'Compose Component', url: '/compose-component' },
-  { name: 'Generate Box', url: '/generate-box' },
-  { name: 'Page Guest Greeting', url: '/page-guest-greeting' },
-  { name: 'Lifting State Up', url: "/lifting-state-up" },
-  { name: 'Question Board', url: "/question-board" },
-  { name: 'Color Box', url: "/color-box" },
-]
+  { name: "Compose Component", url: "/compose-component" },
+  { name: "Generate Box", url: "/generate-box" },
+  { name: "Page Guest Greeting", url: "/page-guest-greeting" },
+  { name: "Lifting State Up", url: "/lifting-state-up" },
+  { name: "Question Board", url: "/question-board" },
+  { name: "Color Box", url: "/color-box" },
+  { name: "Traffic Light", url: "/traffic-light" },
+];
 
 function SampleApp() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   function handleUserDetail(url: string) {
-    navigate(url)
+    navigate(url);
   }
 
   return (
@@ -31,7 +31,7 @@ function SampleApp() {
         ))}
       </ul>
     </div>
-  )
+  );
 }
 
-export default SampleApp
+export default SampleApp;
