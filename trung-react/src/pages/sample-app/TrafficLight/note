@@ -1,0 +1,11 @@
+Đèn đang sáng
+    ↓
+Đọc cấu hình của đèn đó
+    ↓
+Chờ đủ thời gian
+    ↓
+Đổi state sang đèn tiếp theo
+    ↓
+React cập nhật giao diện
+    ↓
+Lặp lại
