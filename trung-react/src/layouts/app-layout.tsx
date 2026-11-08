@@ -59,7 +59,8 @@ function AppLayout() {
     { name: "SampleApp", path: "/sample-app", icon: overviewicon },
     { name: "BookKeeper", path: "/book-keeper", icon: overviewicon },
     { name: "useEffect", path: "/use-effect", icon: overviewicon },
-    
+    { name: "useContext", path: "/use-context", icon: overviewicon },
+    { name: "useRef", path: "/use-ref", icon: overviewicon },
   ];
 
   return (

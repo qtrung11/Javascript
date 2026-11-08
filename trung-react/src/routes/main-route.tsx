@@ -32,16 +32,15 @@ import InvoiceDetail from "../pages/sample-app/book-keeper/invoice-detail";
 import { ColorBox } from "../pages/sample-app/color-box";
 import UseEffect from "../pages/foundation/use-effect";
 import { TrafficLight } from "../pages/sample-app/TrafficLight";
+import { MovieFilm } from "../pages/movie-flim";
+import UseRef from "../pages/foundation/use-ref";
 
 export const mainRoute = createBrowserRouter([
   // single route
   {
     path: "/",
-    element: (
-      <AuthRoute>
-        <AppLayout />
-      </AuthRoute>
-    ),
+    // element: <AuthRoute><AppLayout /></AuthRoute>, // authenticate route
+    element: <AppLayout />,
     children: [
       {
         path: "/react-jsx",
@@ -169,6 +168,14 @@ export const mainRoute = createBrowserRouter([
         path: "/traffic-light",
         Component: TrafficLight,
       },
+      {
+        path: "/use-context",
+        Component: MovieFilm
+      },
+       {
+        path: "/use-ref",
+        Component: UseRef
+      }
     ],
   },
   {

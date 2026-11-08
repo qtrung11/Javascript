@@ -14,6 +14,7 @@ export interface SidebarProps {
 //                       : "hover:bg-gray-100/90 border-white text-gray-700"
 //                   }
 function Sidebar({ menu }: SidebarProps) {
+  console.log('Sidebar');
   return (
     <div className="md:w-64 w-16 border-r h-137.5 text-base border-gray-300 pt-4 flex flex-col transition-all duration-300">
       {menu.map((item, index) => (
